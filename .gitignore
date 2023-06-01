@@ -1,0 +1,14 @@
+# node modules
+/node_modules
+
+# dist
+/dist
+
+# notes
+notes.md
+
+# env variables
+.env
+
+# test scripts
+/*.sh

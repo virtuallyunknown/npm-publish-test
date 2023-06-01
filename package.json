@@ -1,0 +1,57 @@
+{
+    "name": "@virtuallyunknown/npm-publish-test",
+    "version": "0.2.11",
+    "type": "module",
+    "author": "virtuallyunknown",
+    "private": false,
+    "description": "npm publishing test",
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+    },
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "npx tsc",
+        "test": "./test.sh",
+        "lint": "npx eslint --max-warnings 0 {src,example}/**",
+        "prepare": "npx husky install && npx rimraf dist && npx tsc",
+        "release": "dotenv release-it --"
+    },
+    "dependencies": {
+        "colors": "^1.4.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^17.6.5",
+        "@commitlint/config-conventional": "^17.6.5",
+        "@typescript-eslint/eslint-plugin": "^5.59.8",
+        "@typescript-eslint/parser": "^5.59.8",
+        "dotenv-cli": "^7.2.1",
+        "eslint": "^8.41.0",
+        "expect-type": "^0.15.0",
+        "husky": "^8.0.3",
+        "release-it": "^15.10.3",
+        "rimraf": "^5.0.1",
+        "typescript": "^5.0.4"
+    },
+    "release-it": {
+        "git": {
+            "requireBranch": "master",
+            "commitMessage": "chore: release v${version}",
+            "changelog": "git log --first-parent master --no-merges --pretty=format:\"* %s (%h)\" ${from}...${to}"
+        },
+        "github": {
+            "release": true,
+            "host": "github.com",
+            "comments": {
+                "submit": true,
+                "issue": ":rocket: _this issue has been resolved in v${version}, see [${releaseName}](${releaseUrl}) for release notes._",
+                "pr": ":rocket: _this pull request is included in v${version}, see [${releaseName}](${releaseUrl}) for release notes._"
+            }
+        },
+        "verbose": 2
+    }
+}
