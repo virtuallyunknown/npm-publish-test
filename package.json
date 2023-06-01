@@ -47,9 +47,7 @@
             "release": true,
             "host": "github.com",
             "comments": {
-                "submit": true,
-                "issue": ":rocket: _this issue has been resolved in v${version}, see [${releaseName}](${releaseUrl}) for release notes._",
-                "pr": ":rocket: _this pull request is included in v${version}, see [${releaseName}](${releaseUrl}) for release notes._"
+                "submit": true
             }
         },
         "verbose": 2
