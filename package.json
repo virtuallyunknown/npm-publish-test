@@ -42,7 +42,7 @@
         "git": {
             "requireBranch": "master",
             "commitMessage": "chore: release v${version}",
-            "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}"
+            "changelog": "git log --first-parent --pretty=format:\"* %s (%h)\" ${from}...${to}"
         },
         "github": {
             "release": true,
